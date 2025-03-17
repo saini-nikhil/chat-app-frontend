@@ -1,7 +1,6 @@
-// src/components/Register.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import "./Style/login&registerpage.css"
 const API_URL = 'http://localhost:5001';
 
 function Register({ logIn }) {
@@ -40,8 +39,14 @@ function Register({ logIn }) {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Register</h2>
+        <div className="app-logo">
+          <h1 className="app-name">ChitChat</h1>
+        </div>
+        
+        <h2>Create Account</h2>
+        
         {error && <div className="error">{error}</div>}
+        
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Username</label>
@@ -52,6 +57,7 @@ function Register({ logIn }) {
               required
             />
           </div>
+          
           <div className="form-group">
             <label>Password</label>
             <input
@@ -61,6 +67,7 @@ function Register({ logIn }) {
               required
             />
           </div>
+          
           <div className="form-group">
             <label>Confirm Password</label>
             <input
@@ -70,8 +77,10 @@ function Register({ logIn }) {
               required
             />
           </div>
+          
           <button type="submit">Register</button>
         </form>
+        
         <p>
           Already have an account? <Link to="/login">Login</Link>
         </p>

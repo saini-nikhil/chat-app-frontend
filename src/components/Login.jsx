@@ -1,7 +1,6 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import "./Style/login&registerpage.css"
 const API_URL = 'http://localhost:5001';
 
 function Login({ logIn }) {
@@ -34,8 +33,14 @@ function Login({ logIn }) {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Login</h2>
+        <div className="app-logo">
+          <h1 className="app-name">ChitChat</h1>
+        </div>
+        
+        <h2>Welcome Back</h2>
+        
         {error && <div className="error">{error}</div>}
+        
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Username</label>
@@ -46,6 +51,7 @@ function Login({ logIn }) {
               required
             />
           </div>
+          
           <div className="form-group">
             <label>Password</label>
             <input
@@ -55,8 +61,10 @@ function Login({ logIn }) {
               required
             />
           </div>
+          
           <button type="submit">Login</button>
         </form>
+        
         <p>
           Don't have an account? <Link to="/register">Register</Link>
         </p>
