@@ -66,7 +66,11 @@ function Chat({ logOut }) {
         setConnectionStatus('disconnected');
       },
       onMessage: (message) => {
-        setMessages(prevMessages => [...prevMessages, message]);
+        // Only add the message if it's not from the current user
+        // or if it's a system message (from 'admin')
+        if (message.sender !== username || message.sender === 'admin') {
+          setMessages(prevMessages => [...prevMessages, message]);
+        }
       },
       onMessageUpdated: ({ messageId, status, seenBy }) => {
         setMessages(prevMessages => 
